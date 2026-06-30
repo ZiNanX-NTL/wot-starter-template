@@ -85,7 +85,7 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-4080520251106001",
     "@vueuse/core": "^11.0.3",
     "@wot-ui/router": "^1.1.2",
-    "@wot-ui/ui": "2.1.0",
+    "@wot-ui/ui": "^2.2.0",
     "@wot-ui/unocss-preset": "0.0.1-beta.4",
     "alova": "^3.5.1",
     "echarts": "^6.0.0",
