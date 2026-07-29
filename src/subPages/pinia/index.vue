@@ -330,7 +330,7 @@ console.log(counterStore.count)`)"
               <wd-button type="primary" @click="saveUserInfo">
                 保存信息
               </wd-button>
-              <wd-button type="error" @click="userStore.clearUserInfo">
+              <wd-button type="danger" @click="userStore.clearUserInfo">
                 清除信息
               </wd-button>
             </view>

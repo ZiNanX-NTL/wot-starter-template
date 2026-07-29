@@ -66,7 +66,7 @@ function openUrl(url: string) {
           <wd-switch v-model="isDark" size="18px" />
         </wd-cell>
         <wd-cell title="跟随系统">
-          <wd-button size="small" @click="setFollowSystem">
+          <wd-button size="small" @click="setFollowSystem(true)">
             跟随系统
           </wd-button>
         </wd-cell>
