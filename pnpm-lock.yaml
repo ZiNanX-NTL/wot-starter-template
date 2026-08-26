@@ -129,9 +129,9 @@ importers:
       '@dcloudio/vite-plugin-uni':
         specifier: 3.0.0-4080520251106001
         version: 3.0.0-4080520251106001(@vueuse/core@11.0.3(vue@3.4.38(typescript@5.5.4)))(postcss@8.5.10)(rollup@4.53.2)(vite@5.2.8(@types/node@20.19.25)(sass@1.99.0)(terser@5.31.6))(vue@3.4.38(typescript@5.5.4))
-      '@iconify-json/carbon':
-        specifier: ^1.1.37
-        version: 1.2.14
+      '@iconify/json':
+        specifier: ^2.2.520
+        version: 2.2.520
       '@mini-types/alipay':
         specifier: ^3.0.14
         version: 3.0.14
@@ -524,11 +524,6 @@ packages:
 
   '@babel/parser@7.29.2':
     resolution: {integrity: sha512-4GgRzy/+fsBa72/RZVJmGKPmZu9Byn8o4MoLpmNe1m8ZfYnz5emHLQz3U4gLud6Zwl0RZIcgiLD7Uq7ySFuDLA==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  '@babel/parser@7.29.7':
-    resolution: {integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1044,10 +1039,6 @@ packages:
 
   '@babel/types@7.29.0':
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.29.7':
-    resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.29.8':
@@ -1875,6 +1866,9 @@ packages:
 
   '@iconify-json/simple-icons@1.2.79':
     resolution: {integrity: sha512-aNyO7Fd1qej9oQfIyohYFRv0lhQLaZ+6UkK1c1qwax0MDPUOZOdq65MlU500kow97pD/W+b2u1And3e25eE24Q==}
+
+  '@iconify/json@2.2.520':
+    resolution: {integrity: sha512-WySQx8JrnDXmrEc5nhbnXAQU1T5Xjyhz+ZdB0kW1Lufp/GcDT2lLKHSYm3bvwPRbd/GL1ZFaKI/M65g4Z/uUTQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -8749,10 +8743,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.29.0
 
-  '@babel/parser@7.29.7':
-    dependencies:
-      '@babel/types': 7.29.7
-
   '@babel/parser@7.29.8':
     dependencies:
       '@babel/types': 7.29.8
@@ -9425,11 +9415,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
-
-  '@babel/types@7.29.7':
-    dependencies:
-      '@babel/helper-string-parser': 7.29.7
-      '@babel/helper-validator-identifier': 7.29.7
 
   '@babel/types@7.29.8':
     dependencies:
@@ -10743,6 +10728,11 @@ snapshots:
   '@iconify-json/simple-icons@1.2.79':
     dependencies:
       '@iconify/types': 2.0.0
+
+  '@iconify/json@2.2.520':
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 2.0.3
 
   '@iconify/types@2.0.0': {}
 
@@ -12658,7 +12648,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.32':
     dependencies:
-      '@babel/parser': 7.29.7
+      '@babel/parser': 7.29.8
       '@vue/shared': 3.5.32
       entities: 7.0.1
       estree-walker: 2.0.2
@@ -12722,7 +12712,7 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.32':
     dependencies:
-      '@babel/parser': 7.29.7
+      '@babel/parser': 7.29.8
       '@vue/compiler-core': 3.5.32
       '@vue/compiler-dom': 3.5.32
       '@vue/compiler-ssr': 3.5.32
