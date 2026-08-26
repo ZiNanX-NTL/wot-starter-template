@@ -1,7 +1,7 @@
 /*
  * @Author: weisheng
  * @Date: 2025-11-25 19:57:54
- * @LastEditTime: 2026-08-26 11:00:12
+ * @LastEditTime: 2026-08-26 16:35:07
  * @LastEditors: ZiNanX-NTL
  * @Description:
  * @FilePath: \wot-starter-template\uno.config.ts
@@ -26,7 +26,7 @@ export default defineConfig({
       preflight: false,
     }),
     presetIcons({
-      scale: 1.2,
+      scale: 1,
       warn: true,
       extraProperties: {
         'display': 'inline-block',
@@ -98,4 +98,11 @@ export default defineConfig({
       primary: 'var(--wot-primary-6)',
     },
   },
+  safelist: [
+    'i-cuida-warning-outline',
+    'i-typcn:warning',
+    'i-line-md-map-marker-alt',
+    'i-line-md-map-marker-alt-filled',
+    'i-mdi-order-bool-ascending-variant',
+  ],
 })

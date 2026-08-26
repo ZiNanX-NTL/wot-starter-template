@@ -35,6 +35,7 @@ declare global {
   const createTemplatePromise: typeof import('@vueuse/core')['createTemplatePromise']
   const createUnrefFn: typeof import('@vueuse/core')['createUnrefFn']
   const customRef: typeof import('vue')['customRef']
+  const dataTypeLabels: typeof import('./utils/typeof')['dataTypeLabels']
   const debouncedRef: typeof import('@vueuse/core')['debouncedRef']
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
@@ -53,11 +54,27 @@ declare global {
   const initializeThemeOnce: typeof import('./utils/systemTheme')['initializeThemeOnce']
   const inject: typeof import('vue')['inject']
   const injectLocal: typeof import('@vueuse/core')['injectLocal']
+  const isArray: typeof import('./utils/typeof')['isArray']
+  const isBigInt: typeof import('./utils/typeof')['isBigInt']
+  const isBoolean: typeof import('./utils/typeof')['isBoolean']
+  const isDate: typeof import('./utils/typeof')['isDate']
   const isDefined: typeof import('@vueuse/core')['isDefined']
+  const isFile: typeof import('./utils/typeof')['isFile']
+  const isFunction: typeof import('./utils/typeof')['isFunction']
+  const isMap: typeof import('./utils/typeof')['isMap']
+  const isNull: typeof import('./utils/typeof')['isNull']
+  const isNumber: typeof import('./utils/typeof')['isNumber']
+  const isObject: typeof import('./utils/typeof')['isObject']
+  const isPromise: typeof import('./utils/typeof')['isPromise']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const isRegExp: typeof import('./utils/typeof')['isRegExp']
+  const isSet: typeof import('./utils/typeof')['isSet']
+  const isString: typeof import('./utils/typeof')['isString']
+  const isSymbol: typeof import('./utils/typeof')['isSymbol']
+  const isUndefined: typeof import('./utils/typeof')['isUndefined']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const mapActions: typeof import('pinia')['mapActions']
   const mapGetters: typeof import('pinia')['mapGetters']
@@ -389,6 +406,7 @@ declare module 'vue' {
     readonly createTemplatePromise: UnwrapRef<typeof import('@vueuse/core')['createTemplatePromise']>
     readonly createUnrefFn: UnwrapRef<typeof import('@vueuse/core')['createUnrefFn']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
+    readonly dataTypeLabels: UnwrapRef<typeof import('./utils/typeof')['dataTypeLabels']>
     readonly debouncedRef: UnwrapRef<typeof import('@vueuse/core')['debouncedRef']>
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
@@ -407,11 +425,27 @@ declare module 'vue' {
     readonly initializeThemeOnce: UnwrapRef<typeof import('./utils/systemTheme')['initializeThemeOnce']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>
+    readonly isArray: UnwrapRef<typeof import('./utils/typeof')['isArray']>
+    readonly isBigInt: UnwrapRef<typeof import('./utils/typeof')['isBigInt']>
+    readonly isBoolean: UnwrapRef<typeof import('./utils/typeof')['isBoolean']>
+    readonly isDate: UnwrapRef<typeof import('./utils/typeof')['isDate']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
+    readonly isFile: UnwrapRef<typeof import('./utils/typeof')['isFile']>
+    readonly isFunction: UnwrapRef<typeof import('./utils/typeof')['isFunction']>
+    readonly isMap: UnwrapRef<typeof import('./utils/typeof')['isMap']>
+    readonly isNull: UnwrapRef<typeof import('./utils/typeof')['isNull']>
+    readonly isNumber: UnwrapRef<typeof import('./utils/typeof')['isNumber']>
+    readonly isObject: UnwrapRef<typeof import('./utils/typeof')['isObject']>
+    readonly isPromise: UnwrapRef<typeof import('./utils/typeof')['isPromise']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isRegExp: UnwrapRef<typeof import('./utils/typeof')['isRegExp']>
+    readonly isSet: UnwrapRef<typeof import('./utils/typeof')['isSet']>
+    readonly isString: UnwrapRef<typeof import('./utils/typeof')['isString']>
+    readonly isSymbol: UnwrapRef<typeof import('./utils/typeof')['isSymbol']>
+    readonly isUndefined: UnwrapRef<typeof import('./utils/typeof')['isUndefined']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
