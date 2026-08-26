@@ -68,7 +68,7 @@ export default defineConfig({
         imports: ['usePagination', 'useRequest'],
       }],
       dts: 'src/auto-imports.d.ts',
-      dirs: ['src/composables', 'src/store', 'src/utils', 'src/api'],
+      dirs: ['src/composables', 'src/store', 'src/utils', 'src/api', 'src/hooks'],
       vueTemplate: true,
     }),
     // https://github.com/antfu/unocss
@@ -80,6 +80,7 @@ export default defineConfig({
       scss: {
         api: 'modern-compiler',
         silenceDeprecations: ['legacy-js-api'],
+        additionalData: `@use "@/styles/scss/global.scss" as *;`,
       },
     },
   },
