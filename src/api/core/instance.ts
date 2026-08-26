@@ -2,7 +2,7 @@ import AdapterUniapp from '@alova/adapter-uniapp'
 import { createAlova } from 'alova'
 import vueHook from 'alova/vue'
 import mockAdapter from '../mock/mockAdapter'
-import { handleAlovaError, handleAlovaResponse } from './handlers'
+import { handleAlovaError, handleAlovaResponse, interceptors } from './handlers'
 
 export const alovaInstance = createAlova({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'https://petstore3.swagger.io/api/v3',
@@ -10,16 +10,21 @@ export const alovaInstance = createAlova({
     mockRequest: mockAdapter,
   }),
   statesHook: vueHook,
-  beforeRequest: (method) => {
-    // Add content type for POST/PUT/PATCH requests
-    if (['POST', 'PUT', 'PATCH'].includes(method.type)) {
-      method.config.headers['Content-Type'] = 'application/json'
-    }
+  beforeRequest: async (method) => {
+    const { config } = method
+    config.headers['Content-Type'] = config.headers['Content-Type'] ?? 'application/x-www-form-urlencoded'
 
-    // Add timestamp to prevent caching for GET requests
-    if (method.type === 'GET' && CommonUtil.isObj(method.config.params)) {
-      method.config.params._t = Date.now()
-    }
+    await interceptors.beforeRequest?.(method)
+
+    // const requiresAuth = config.meta?.requiresAuth
+    // 处理认证信息   自行处理认证问题
+    // if (requiresAuth) {
+    //   const token = getToken()
+    //   if (!token) {
+    //     throw new Error('[请求错误]：未登录')
+    //   }
+    //   method.config.headers.Authorization = `Bearer ${token}`
+    // }
 
     // Log request in development
     if (import.meta.env.MODE === 'development') {

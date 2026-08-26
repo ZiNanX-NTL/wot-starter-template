@@ -1,13 +1,16 @@
 /*
  * @Author: weisheng
  * @Date: 2025-04-17 15:58:11
- * @LastEditTime: 2025-06-15 21:47:22
- * @LastEditors: weisheng
+ * @LastEditTime: 2026-08-26 14:57:09
+ * @LastEditors: ZiNanX-NTL
  * @Description: Alova response and error handlers
- * @FilePath: /wot-starter/src/api/core/handlers.ts
+ * @FilePath: \wot-starter-template\src\api\core\handlers.ts
  */
 import type { Method } from 'alova'
 import router from '@/router'
+import { RequestInterceptor } from './alovaInterceptor'
+
+export const interceptors = new RequestInterceptor()
 
 // Custom error class for API errors
 export class ApiError extends Error {
@@ -22,7 +25,7 @@ export class ApiError extends Error {
   }
 }
 
-// Define a type for the expected API response structure
+/* // Define a type for the expected API response structure
 interface ApiResponse {
   code: number
   msg?: string
@@ -67,6 +70,32 @@ export async function handleAlovaResponse(
 
   // Return data for successful responses
   return json
+} */
+
+const globalToast = useGlobalToast()
+export async function handleAlovaResponse(response: UniApp.RequestSuccessCallbackResult | UniApp.UploadFileSuccessCallbackResult | UniApp.DownloadSuccessData, method: Method) {
+  const result = await interceptors.responded.onSuccess?.(response, method)
+
+  const { error, data } = result
+
+  // 处理特定业务状态码，例如 Code === 403 代表权限变更，需要重新登录
+  if (error?.code === '403') {
+    // 如果是未授权错误，清除用户信息并跳转到登录页
+    globalToast.error({ msg: '登录已过期，请重新登录！', duration: 500 })
+    const timer = setTimeout(() => {
+      clearTimeout(timer)
+      router.replaceAll({ name: 'login' })
+    }, 500)
+    throw new Error('登录已过期，请重新登录！')
+  }
+
+  // 未设置meta.parserData 和如果配置了 meta.parserData = true，进行业务数据解析
+  const { config } = method
+  if (config.meta?.parserData === false) {
+    return result
+  }
+
+  return data
 }
 
 // Handle request errors
