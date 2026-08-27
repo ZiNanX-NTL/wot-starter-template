@@ -1,0 +1,40 @@
+import type { UnwrapNestedRefs } from 'vue'
+
+/** 重置配置 */
+interface ResettableConfig<T, R = T> {
+  transformerState?: (params: T) => R
+}
+
+function defaultClone(value: any) {
+  if (value === null || typeof value !== 'object')
+    return value
+  return JSON.parse(JSON.stringify(value))
+}
+export function useResettableReactive<T extends object, R extends object = T>(
+  value: T,
+  config?: ResettableConfig<UnwrapNestedRefs<T>, R>,
+  clone = defaultClone,
+) {
+  const defaultValue = value
+  const state = reactive<T>(clone(defaultValue))
+  const formatState = reactive<R>({} as R)
+
+  const transformerState = config?.transformerState || ((params: UnwrapNestedRefs<T>) => params as unknown as R)
+
+  /** 设置默认值 */
+  const setDefaultValue = (val: T) => {
+    Object.assign(defaultValue, val)
+  }
+  /** 重置状态 */
+  const reset = () => {
+    Object.keys(state).forEach(key => Reflect.deleteProperty(state, key))
+    Object.assign(state, clone(defaultValue))
+  }
+  /** 设置请求参数 */
+  const setFormatState = () => {
+    Object.assign(formatState, transformerState(state))
+  }
+  setFormatState()
+
+  return { state, formatState, reset, setDefaultValue, setFormatState }
+}
