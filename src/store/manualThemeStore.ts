@@ -1,6 +1,6 @@
 import type { ThemeColorOption, ThemeMode, ThemeState } from '@/composables/types/theme'
 import { defineStore } from 'pinia'
-import { themeColorOptions } from '@/composables/types/theme'
+import { cloneThemeColorOption, themeColorOptions } from '@/composables/types/theme'
 import { getSystemTheme } from '@/utils/systemTheme'
 
 function buildThemeVars(color: ThemeColorOption) {
@@ -18,7 +18,7 @@ export const useManualThemeStore = defineStore('manualTheme', {
     theme: 'light',
     followSystem: true, // 是否跟随系统主题
     hasUserSet: false, // 用户是否手动设置过主题
-    currentThemeColor: themeColorOptions[0],
+    currentThemeColor: cloneThemeColorOption(themeColorOptions[0]),
     themeVars: buildThemeVars(themeColorOptions[0]),
   }),
 
@@ -73,7 +73,7 @@ export const useManualThemeStore = defineStore('manualTheme', {
      * @param color 主题色选项
      */
     setCurrentThemeColor(color: ThemeColorOption) {
-      this.currentThemeColor = color
+      this.currentThemeColor = cloneThemeColorOption(color)
       this.themeVars = {
         ...this.themeVars,
         ...buildThemeVars(color),
@@ -117,4 +117,6 @@ export const useManualThemeStore = defineStore('manualTheme', {
       this.setNavigationBarColor()
     },
   },
+
+  persist: true, // 开启持久化
 })

@@ -44,6 +44,8 @@ function handleThemeColorSelect(option: any) {
 function openUrl(url: string) {
   window.open(url, '_blank')
 }
+
+console.log('aaa', themeColorOptions)
 </script>
 
 <template>

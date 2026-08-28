@@ -1,15 +1,14 @@
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import 'uno.css'
 import '@/styles/css/global.css'
 
-const pinia = createPinia()
-pinia.use(persistPlugin)
 export function createApp() {
   const app = createSSRApp(App)
+  app.use(store)
   app.use(router)
-  app.use(pinia)
   return {
     app,
   }

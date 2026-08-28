@@ -150,6 +150,7 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const store: typeof import('./store/index')['default']
   const storeToRefs: typeof import('pinia')['storeToRefs']
   const subscribeSystemThemeChange: typeof import('./utils/systemTheme')['subscribeSystemThemeChange']
   const syncRef: typeof import('@vueuse/core')['syncRef']
@@ -251,6 +252,7 @@ declare global {
   const useIntervalFn: typeof import('@vueuse/core')['useIntervalFn']
   const useKeyModifier: typeof import('@vueuse/core')['useKeyModifier']
   const useLastChanged: typeof import('@vueuse/core')['useLastChanged']
+  const useLeaflet: typeof import('./hooks/useLeaflet')['useLeaflet']
   const useLocalStorage: typeof import('@vueuse/core')['useLocalStorage']
   const useMagicKeys: typeof import('@vueuse/core')['useMagicKeys']
   const useManualRefHistory: typeof import('@vueuse/core')['useManualRefHistory']
@@ -290,7 +292,9 @@ declare global {
   const usePrevious: typeof import('@vueuse/core')['usePrevious']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
+  const useRender: typeof import('./hooks/useRender')['default']
   const useRequest: typeof import('alova/client')['useRequest']
+  const useResettableReactive: typeof import('./hooks/useResettableReactive')['useResettableReactive']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
   const useRoute: typeof import('@wot-ui/router')['useRoute']
   const useRouter: typeof import('@wot-ui/router')['useRouter']
@@ -522,6 +526,7 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly store: UnwrapRef<typeof import('./store/index')['default']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly subscribeSystemThemeChange: UnwrapRef<typeof import('./utils/systemTheme')['subscribeSystemThemeChange']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
@@ -623,6 +628,7 @@ declare module 'vue' {
     readonly useIntervalFn: UnwrapRef<typeof import('@vueuse/core')['useIntervalFn']>
     readonly useKeyModifier: UnwrapRef<typeof import('@vueuse/core')['useKeyModifier']>
     readonly useLastChanged: UnwrapRef<typeof import('@vueuse/core')['useLastChanged']>
+    readonly useLeaflet: UnwrapRef<typeof import('./hooks/useLeaflet')['useLeaflet']>
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>
@@ -661,7 +667,9 @@ declare module 'vue' {
     readonly usePrevious: UnwrapRef<typeof import('@vueuse/core')['usePrevious']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
+    readonly useRender: UnwrapRef<typeof import('./hooks/useRender')['default']>
     readonly useRequest: UnwrapRef<typeof import('alova/client')['useRequest']>
+    readonly useResettableReactive: UnwrapRef<typeof import('./hooks/useResettableReactive')['useResettableReactive']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useRoute: UnwrapRef<typeof import('@wot-ui/router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('@wot-ui/router')['useRouter']>

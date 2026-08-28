@@ -52,6 +52,18 @@ export interface ThemeState {
 }
 
 /**
+ * 创建主题色选项副本，避免 Pinia 持久化恢复时修改预定义选项。
+ */
+export function cloneThemeColorOption(option: ThemeColorOption): ThemeColorOption {
+  return {
+    ...option,
+    primaryShades: {
+      ...option.primaryShades,
+    },
+  }
+}
+
+/**
  * 系统主题状态接口（简化版）
  */
 export interface SystemThemeState {

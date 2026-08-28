@@ -20,6 +20,7 @@ declare module 'vue' {
     WdDialog: typeof import('@wot-ui/ui/components/wd-dialog/wd-dialog.vue')['default']
     WdGap: typeof import('@wot-ui/ui/components/wd-gap/wd-gap.vue')['default']
     WdIcon: typeof import('@wot-ui/ui/components/wd-icon/wd-icon.vue')['default']
+    WdInput: typeof import('@wot-ui/ui/components/wd-input/wd-input.vue')['default']
     WdNotify: typeof import('@wot-ui/ui/components/wd-notify/wd-notify.vue')['default']
     WdSwitch: typeof import('@wot-ui/ui/components/wd-switch/wd-switch.vue')['default']
     WdTabbar: typeof import('@wot-ui/ui/components/wd-tabbar/wd-tabbar.vue')['default']
