@@ -1,24 +1,16 @@
 /*
  * @Author: weisheng
  * @Date: 2025-06-23 22:23:05
- * @LastEditTime: 2025-06-27 13:04:54
- * @LastEditors: weisheng
+ * @LastEditTime: 2026-09-03 16:01:09
+ * @LastEditors: ZiNanX-NTL
  * @Description:
- * @FilePath: /wot-starter/pages.config.ts
+ * @FilePath: \wot-starter-template\pages.config.ts
  * 记得注释
  */
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
-  pages: [{
-    path: 'pages/login/index',
-    name: 'login',
-    type: 'page',
-    auth: false,
-    style: {
-      navigationBarTitleText: '登录',
-    },
-  }],
+  pages: [],
   globalStyle: {
     // 导航栏配置
     navigationBarBackgroundColor: '@navBgColor',
