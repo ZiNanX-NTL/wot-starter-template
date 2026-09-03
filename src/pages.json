@@ -31,7 +31,18 @@
       "style": {
         "navigationBarTitleText": "关于"
       }
+    },
+    // #ifdef H5
+    {
+      "path": "pages/login/index",
+      "type": "page",
+      "name": "login",
+      "auth": false,
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
     }
+    // #endif
   ],
   "subPackages": [
     {
@@ -118,6 +129,7 @@
             "navigationBarTitleText": "参数接收演示"
           }
         },
+        // #ifdef APP
         {
           "path": "router/demo-protected",
           "type": "page",
@@ -126,6 +138,18 @@
             "navigationBarTitleText": "受保护页面"
           }
         },
+        // #endif
+        // #ifdef H5
+        {
+          "path": "router/demo-protected",
+          "type": "page",
+          "name": "demo-protected",
+          "auth": true,
+          "style": {
+            "navigationBarTitleText": "受保护页面"
+          }
+        },
+        // #endif
         {
           "path": "router/demo-query",
           "type": "page",

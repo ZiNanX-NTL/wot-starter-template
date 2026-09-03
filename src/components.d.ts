@@ -12,6 +12,7 @@ declare module 'vue' {
     GlobalLoading: typeof import('./components/GlobalLoading.vue')['default']
     GlobalToast: typeof import('./components/GlobalToast.vue')['default']
     PrivacyPopup: typeof import('./components/PrivacyPopup.vue')['default']
+    UniEcharts: typeof import('uni-echarts')['default']
     WdActionSheet: typeof import('@wot-ui/ui/components/wd-action-sheet/wd-action-sheet.vue')['default']
     WdButton: typeof import('@wot-ui/ui/components/wd-button/wd-button.vue')['default']
     WdCell: typeof import('@wot-ui/ui/components/wd-cell/wd-cell.vue')['default']

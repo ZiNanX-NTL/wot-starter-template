@@ -10,7 +10,15 @@
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({
-  pages: [],
+  pages: [{
+    path: 'pages/login/index',
+    name: 'login',
+    type: 'page',
+    auth: false,
+    style: {
+      navigationBarTitleText: '登录',
+    },
+  }],
   globalStyle: {
     // 导航栏配置
     navigationBarBackgroundColor: '@navBgColor',

@@ -1,5 +1,7 @@
-/// <reference types="@uni-helper/vite-plugin-uni-pages/client" />
+import { isMpWeixin } from '@uni-helper/uni-env'
 import { pages, subPackages } from 'virtual:uni-pages'
+import { useAuthStore } from '@/store/auth'
+import { authConfig, createLoginLocation, createPostLoginLocation, requiresAuth } from './auth'
 
 function generateRoutes() {
   const routes = pages.map((page) => {
@@ -22,6 +24,29 @@ const router = createRouter({
   routes: generateRoutes(),
 })
 router.beforeEach((to, from, next) => {
+  // 登录拦截顺序：小程序兼容 -> 登录态检查 -> 登录页处理 -> 回跳地址 -> 策略判断。
+  // 所有平台均使用 uni-app 路由和存储，不依赖 window/location。
+  if (isMpWeixin) {
+    // 微信小程序页面栈切换不支持浏览器 History API；路由对象缺失时安全回退首页。
+    if (!to || !to.path) {
+      return next({ path: authConfig.homePath })
+    }
+  }
+  const authStore = useAuthStore()
+  const loggedIn = authStore.ensureValid()
+  const isLoginPage = to.name === authConfig.loginName || to.path === authConfig.loginPath
+
+  if (isLoginPage && loggedIn) {
+    return next(createPostLoginLocation(to))
+  }
+
+  if (!loggedIn && requiresAuth(to)) {
+    if (to.path === authConfig.loginPath) {
+      return next()
+    }
+    return next(createLoginLocation(to))
+  }
+
   console.log('🚀 beforeEach 守卫触发:', { to, from })
 
   // 演示：基本的导航日志记录
